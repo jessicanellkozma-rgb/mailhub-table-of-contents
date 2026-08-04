@@ -78,7 +78,7 @@ export function TableOfContents({
 
     const compute = () => {
       const line = scrollOffset + 8;
-      let current = elements[0];
+      let current: HTMLElement = elements[0]!;
       for (const el of elements) {
         if (el.getBoundingClientRect().top <= line) current = el;
       }
@@ -86,7 +86,7 @@ export function TableOfContents({
         window.innerHeight + window.scrollY >=
         document.documentElement.scrollHeight - 4
       ) {
-        current = elements[elements.length - 1];
+        current = elements[elements.length - 1]!;
       }
       setActiveId(current.id);
     };
